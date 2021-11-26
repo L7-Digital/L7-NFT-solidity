@@ -30,7 +30,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"./Address.sol\";\n\n/**\n * @dev Provides a function to batch together multiple calls in a single external call.\n *\n * _Available since v4.1._\n */\nabstract contract Multicall {\n    /**\n    * @dev Receives and executes a batch of function calls on this contract.\n    */\n    function multicall(bytes[] calldata data) external returns (bytes[] memory results) {\n        results = new bytes[](data.length);\n        for (uint i = 0; i < data.length; i++) {\n            results[i] = Address.functionDelegateCall(address(this), data[i]);\n        }\n        return results;\n    }\n}\n",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/utils/Multicall.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/utils/Multicall.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/utils/Multicall.sol",
     "exportedSymbols": {
@@ -1371,7 +1371,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.902Z",
+  "updatedAt": "2021-11-26T16:13:00.701Z",
   "devdoc": {
     "details": "Provides a function to batch together multiple calls in a single external call. _Available since v4.1._",
     "kind": "dev",

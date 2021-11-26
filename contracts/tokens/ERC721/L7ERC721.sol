@@ -32,7 +32,7 @@ contract L7ERC721 is ERC721Pausable, Ownable {
      *
      */
     constructor() ERC721("L7 ERC721", "L7") Ownable() Pausable() {
-        __baseURI = "https://metadata.orbitau.io/";
+        __baseURI = "https://metadata.l7.digital/";
     }
 
     /**

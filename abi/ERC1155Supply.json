@@ -361,7 +361,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"../ERC1155.sol\";\n\n/**\n * @dev Extension of ERC1155 that adds tracking of total supply per id.\n *\n * Useful for scenarios where Fungible and Non-fungible tokens have to be\n * clearly identified. Note: While a totalSupply of 1 might mean the\n * corresponding is an NFT, there is no guarantees that no other token with the\n * same id are not going to be minted.\n */\nabstract contract ERC1155Supply is ERC1155 {\n    mapping(uint256 => uint256) private _totalSupply;\n\n    /**\n     * @dev Total amount of tokens in with a given id.\n     */\n    function totalSupply(uint256 id) public view virtual returns (uint256) {\n        return _totalSupply[id];\n    }\n\n    /**\n     * @dev Indicates weither any token exist with a given id, or not.\n     */\n    function exists(uint256 id) public view virtual returns (bool) {\n        return ERC1155Supply.totalSupply(id) > 0;\n    }\n\n    /**\n     * @dev See {ERC1155-_mint}.\n     */\n    function _mint(\n        address account,\n        uint256 id,\n        uint256 amount,\n        bytes memory data\n    ) internal virtual override {\n        super._mint(account, id, amount, data);\n        _totalSupply[id] += amount;\n    }\n\n    /**\n     * @dev See {ERC1155-_mintBatch}.\n     */\n    function _mintBatch(\n        address to,\n        uint256[] memory ids,\n        uint256[] memory amounts,\n        bytes memory data\n    ) internal virtual override {\n        super._mintBatch(to, ids, amounts, data);\n        for (uint256 i = 0; i < ids.length; ++i) {\n            _totalSupply[ids[i]] += amounts[i];\n        }\n    }\n\n    /**\n     * @dev See {ERC1155-_burn}.\n     */\n    function _burn(\n        address account,\n        uint256 id,\n        uint256 amount\n    ) internal virtual override {\n        super._burn(account, id, amount);\n        _totalSupply[id] -= amount;\n    }\n\n    /**\n     * @dev See {ERC1155-_burnBatch}.\n     */\n    function _burnBatch(\n        address account,\n        uint256[] memory ids,\n        uint256[] memory amounts\n    ) internal virtual override {\n        super._burnBatch(account, ids, amounts);\n        for (uint256 i = 0; i < ids.length; ++i) {\n            _totalSupply[ids[i]] -= amounts[i];\n        }\n    }\n}",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/token/ERC1155/extensions/ERC1155Supply.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/token/ERC1155/extensions/ERC1155Supply.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/token/ERC1155/extensions/ERC1155Supply.sol",
     "exportedSymbols": {
@@ -4794,7 +4794,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.812Z",
+  "updatedAt": "2021-11-26T16:12:59.785Z",
   "devdoc": {
     "details": "Extension of ERC1155 that adds tracking of total supply per id. Useful for scenarios where Fungible and Non-fungible tokens have to be clearly identified. Note: While a totalSupply of 1 might mean the corresponding is an NFT, there is no guarantees that no other token with the same id are not going to be minted.",
     "kind": "dev",

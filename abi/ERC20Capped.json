@@ -294,7 +294,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"../ERC20.sol\";\n\n/**\n * @dev Extension of {ERC20} that adds a cap to the supply of tokens.\n */\nabstract contract ERC20Capped is ERC20 {\n    uint256 immutable private _cap;\n\n    /**\n     * @dev Sets the value of the `cap`. This value is immutable, it can only be\n     * set once during construction.\n     */\n    constructor (uint256 cap_) {\n        require(cap_ > 0, \"ERC20Capped: cap is 0\");\n        _cap = cap_;\n    }\n\n    /**\n     * @dev Returns the cap on the token's total supply.\n     */\n    function cap() public view virtual returns (uint256) {\n        return _cap;\n    }\n\n    /**\n     * @dev See {ERC20-_mint}.\n     */\n    function _mint(address account, uint256 amount) internal virtual override {\n        require(ERC20.totalSupply() + amount <= cap(), \"ERC20Capped: cap exceeded\");\n        super._mint(account, amount);\n    }\n}\n",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/token/ERC20/extensions/ERC20Capped.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/token/ERC20/extensions/ERC20Capped.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/token/ERC20/extensions/ERC20Capped.sol",
     "exportedSymbols": {
@@ -1899,7 +1899,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.829Z",
+  "updatedAt": "2021-11-26T16:13:00.242Z",
   "devdoc": {
     "details": "Extension of {ERC20} that adds a cap to the supply of tokens.",
     "kind": "dev",

@@ -24,7 +24,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\n/**\n * @dev This is the interface that {BeaconProxy} expects of its beacon.\n */\ninterface IBeacon {\n    /**\n     * @dev Must return an address that can be used as a delegate call target.\n     *\n     * {BeaconProxy} will check that this address is a contract.\n     */\n    function implementation() external view returns (address);\n}\n",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/proxy/beacon/IBeacon.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/proxy/beacon/IBeacon.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/proxy/beacon/IBeacon.sol",
     "exportedSymbols": {
@@ -255,7 +255,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.790Z",
+  "updatedAt": "2021-11-26T16:12:59.631Z",
   "devdoc": {
     "details": "This is the interface that {BeaconProxy} expects of its beacon.",
     "kind": "dev",

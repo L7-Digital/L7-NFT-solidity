@@ -108,7 +108,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"../IERC1155Receiver.sol\";\nimport \"../../../utils/introspection/ERC165.sol\";\n\n/**\n * @dev _Available since v3.1._\n */\nabstract contract ERC1155Receiver is ERC165, IERC1155Receiver {\n    /**\n     * @dev See {IERC165-supportsInterface}.\n     */\n    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {\n        return interfaceId == type(IERC1155Receiver).interfaceId\n            || super.supportsInterface(interfaceId);\n    }\n}\n",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/token/ERC1155/utils/ERC1155Receiver.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/token/ERC1155/utils/ERC1155Receiver.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/token/ERC1155/utils/ERC1155Receiver.sol",
     "exportedSymbols": {
@@ -937,7 +937,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.822Z",
+  "updatedAt": "2021-11-26T16:13:00.027Z",
   "devdoc": {
     "details": "_Available since v3.1._",
     "kind": "dev",

@@ -87,7 +87,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.0;\n\nimport \"../ERC1967/ERC1967Upgrade.sol\";\n\n/**\n * @dev Base contract for building openzeppelin-upgrades compatible implementations for the {ERC1967Proxy}. It includes\n * publicly available upgrade functions that are called by the plugin and by the secure upgrade mechanism to verify\n * continuation of the upgradability.\n *\n * The {_authorizeUpgrade} function MUST be overridden to include access restriction to the upgrade mechanism.\n *\n * _Available since v4.1._\n */\nabstract contract UUPSUpgradeable is ERC1967Upgrade {\n    function upgradeTo(address newImplementation) external virtual {\n        _authorizeUpgrade(newImplementation);\n        _upgradeToAndCallSecure(newImplementation, bytes(\"\"), false);\n    }\n\n    function upgradeToAndCall(address newImplementation, bytes memory data) external payable virtual {\n        _authorizeUpgrade(newImplementation);\n        _upgradeToAndCallSecure(newImplementation, data, true);\n    }\n\n    function _authorizeUpgrade(address newImplementation) internal virtual;\n}\n",
-  "sourcePath": "/Users/baonq/Projects/l7/l7-nft-simple-smartcontract/contracts/lib/proxy/utils/UUPSUpgradeable.sol",
+  "sourcePath": "/Users/baonq/Projects/l7/L7-NFT-ERC-solidity/contracts/lib/proxy/utils/UUPSUpgradeable.sol",
   "ast": {
     "absolutePath": "project:/contracts/lib/proxy/utils/UUPSUpgradeable.sol",
     "exportedSymbols": {
@@ -1350,7 +1350,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-11-16T03:54:31.798Z",
+  "updatedAt": "2021-11-26T16:12:59.667Z",
   "devdoc": {
     "details": "Base contract for building openzeppelin-upgrades compatible implementations for the {ERC1967Proxy}. It includes publicly available upgrade functions that are called by the plugin and by the secure upgrade mechanism to verify continuation of the upgradability. The {_authorizeUpgrade} function MUST be overridden to include access restriction to the upgrade mechanism. _Available since v4.1._",
     "kind": "dev",
